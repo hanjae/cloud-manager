@@ -52,7 +52,7 @@ class FileDatabase(object):
             """
                 INSERT INTO files (name, hash, size, payload)
                 SELECT ?, ?, ?, ?
-                WHERE NOT EXISTS (SELECT 1 FROM files WHERE hash = %s);
+                WHERE NOT EXISTS (SELECT 1 FROM files WHERE hash = ?);
             """,
             [name, key, size, payload, key])
 
